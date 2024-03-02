@@ -1,11 +1,13 @@
 ## General:
 Nmap scan types - can combine scan types such as -sU and -sS (scan UDP and TCP)
-| Scan type   | Argument | Description                                                                                                                  |
-|-------------|----------|------------------------------------------------------------------------------------------------------------------------------|
-| Ping or ARP | -sn      | Disable port scan, host discovry scandepth scans                                                                             |
-| TCP connect | -sT      | TCP port scan using conventional TCP connections - 3-Way Handshake Syn,Syn-Ack,Ack                                           |
-| TCP SYN     | -sS      | TCP port scan using half-open TCP connections - never sends final Ack. Can look suspicious from network analysis perspective |
-| Version     | -sV      | Combine with other scans to identify services through active probes                                                          |
+| Scan type   | Argument    | Description                                                                                                                                     |
+|-------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ping or ARP | -sn         | Disable port scan, host discovry scandepth scans                                                                                                |
+| TCP connect | -sT         | TCP port scan using conventional TCP connections - 3-Way Handshake Syn,Syn-Ack,Ack                                                              |
+| TCP SYN     | -sS         | TCP port scan using half-open TCP connections - never sends final Ack. Can look suspicious from network analysis perspective                    |
+| Version     | -sV         | Combine with other scans to identify services through active probes                                                                             |
+| Top ports   | --top-ports | Scans the <n> highest-ratio ports found in nmap-services file after excluding all ports specified by --exclude-ports. <n> must be 1 or greater. | 
+
 
 
 **Host enumeration:**
