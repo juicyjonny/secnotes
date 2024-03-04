@@ -1,5 +1,15 @@
 ffuf
 
+## Goto
+```
+ffuf -u http://10.10.11.253/FUZZ -w ~/repos/SecLists/Discovery/Web-Content/raft-medium-directories-lowercase.txt
+-o ffuf-rootraftmed.log
+```
+JQ the results:
+```
+cat output_file | jq -c '.results[] | {url:.url,status: .status}'
+```
+
 ## General
 | Command                                                                                                                                                     | Description              |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
@@ -14,20 +24,18 @@ ffuf
 | ffuf -w wordlist.txt:FUZZ -u http://admin.squid.com:PORT/admin/admin.php -X POST -d 'FUZZ=key' -H 'Content-Type: application/x-www-form-urlencoded' -fs xxx | Parameter Fuzzing - POST |
 | ffuf -w ids.txt:FUZZ -u http://admin.squid.com:PORT/admin/admin.php -X POST -d 'id=FUZZ' -H 'Content-Type: application/x-www-form-urlencoded' -fs xxx       | Value Fuzzing            |
 
+### Match options:
 -mc : to specify Status code.
 -ml: to specify amount of lines in response
 -mr: to specify regex pattern
 -ms: to specify response size
 -mw: to specify amount of words in response
 
+### Filter options:
 -fw : to filter by the amount of words
-
 -fl : to filter by the number of lines
-
 -fs : to filter by the size of the response
-
 -fc : to filter by the status code
-
 -fr : to filter by the regex pattern
 
 
@@ -41,7 +49,3 @@ ffuf
 | /opt/useful/SecLists/Discovery/Web-Content/burp-parameter-names.txt        | Parameters Wordlist     |
 
 
-```
-ffuf -u http://10.10.11.253/FUZZ -w ~/repos/SecLists/Discovery/Web-Content/raft-medium-directories-lowercase.txt
--o ffuf-rootraftmed.log
-```
